@@ -22,7 +22,7 @@
                         <span class="font-medium">
                             {{ formatNumber(actualCategoriesCount) }} دسته‌بندی
                         </span>
-                    </div>gs
+                    </div>
                 </div>
             </div>
         </section>
