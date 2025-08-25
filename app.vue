@@ -30,14 +30,15 @@ useHead({
   ]
 })
 
-// Initialize auth on app mount (client-side only)
+// Initialize auth on app mount (client-side only) with error handling
 onMounted(async () => {
   if (process.client) {
     try {
+      const { useAuthStore } = await import('~/stores/auth')
       const authStore = useAuthStore()
       await authStore.initializeAuth()
     } catch (error) {
-      console.error('Auth initialization error:', error)
+      console.warn('Auth initialization failed:', error)
     }
   }
 })
