@@ -5,15 +5,13 @@ export default defineNuxtConfig({
     port: 3001
   },
 
-  // فقط Pinia
-  modules: [
-    '@pinia/nuxt'
-  ],
+  // Modules
+  modules: ['@pinia/nuxt'],
 
-  // تنظیمات CSS
+  // CSS
   css: ['~/assets/css/main.css'],
 
-  // تنظیمات PostCSS برای Tailwind
+  // PostCSS
   postcss: {
     plugins: {
       tailwindcss: {},
@@ -21,7 +19,7 @@ export default defineNuxtConfig({
     }
   },
 
-  // تنظیمات Components - اجباری کردن auto-import
+  // Components auto-import
   components: [
     {
       path: '~/components',
@@ -29,17 +27,14 @@ export default defineNuxtConfig({
     },
   ],
 
-  // تنظیمات runtime
+  // Runtime config
   runtimeConfig: {
     public: {
       apiBase: process.env.API_BASE || 'http://localhost:8000/api'
     }
   },
 
-  // تنظیمات SSR
-  ssr: true,
-
-  // تنظیمات app
+  // App
   app: {
     head: {
       charset: 'utf-8',

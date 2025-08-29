@@ -7,7 +7,7 @@
   </NuxtLayout>
 </template>
 
-<script setup lang="ts">
+<script setup>
 // Global head configuration
 useHead({
   htmlAttrs: {
@@ -19,7 +19,7 @@ useHead({
     { charset: 'utf-8' },
     { name: 'viewport', content: 'width=device-width, initial-scale=1' },
     { name: 'description', content: 'بلیان - مقالات و آموزش‌های تخصصی' },
-    { name: 'keywords', content: 'بلیان, مقالات, آموزش, وبلاگ, توسعه نرم‌افزار, برنامه‌نویسی' },
+    { name: 'keywords', content: 'بلیان, مقالات, آموزش, وبلاگ' },
     { property: 'og:title', content: 'بلیان - وبلاگ' },
     { property: 'og:description', content: 'مقالات و آموزش‌های تخصصی' },
     { property: 'og:type', content: 'website' },
@@ -28,19 +28,6 @@ useHead({
   link: [
     { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
   ]
-})
-
-// Initialize auth on app mount (client-side only) with error handling
-onMounted(async () => {
-  if (process.client) {
-    try {
-      const { useAuthStore } = await import('~/stores/auth')
-      const authStore = useAuthStore()
-      await authStore.initializeAuth()
-    } catch (error) {
-      console.warn('Auth initialization failed:', error)
-    }
-  }
 })
 </script>
 
