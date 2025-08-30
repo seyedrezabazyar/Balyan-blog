@@ -140,9 +140,9 @@ const fetchBooks = async () => {
       query: { page: currentPage.value, per_page: perPage }
     })
 
-    if (response?.success) {
-      books.value = response.data || []
-      totalPages.value = response.meta?.last_page || 1
+    if (response?.success && response?.data?.data) {
+      books.value = response.data.data || []
+      totalPages.value = response.data.meta?.last_page || 1
     } else {
       books.value = []
     }
